@@ -11,7 +11,6 @@ const FilterControls = ({ onFilterChange }) => {
       error = 'Please enter a valid number';
     }
 
-    // Year validation
     if ((name === 'startYear' || name === 'endYear') && value) {
       if (parsedValue < 1900 || parsedValue > new Date().getFullYear()) {
         error = 'Please enter a valid year';

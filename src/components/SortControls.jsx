@@ -1,7 +1,7 @@
 const SortControls = ({ onSortChange }) => {
   const handleFieldChange = (field) => {
     if (field) {
-      onSortChange(`${field}:desc`); // Default to descending when field changes
+      onSortChange(`${field}:desc`); 
     }
   };
 

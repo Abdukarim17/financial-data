@@ -22,7 +22,18 @@ function App() {
           `https://financialmodelingprep.com/api/v3/income-statement/AAPL?period=annual&apikey=${API_KEY}`
         );
         const data = await response.json();
-        setFinancialData(data);
+        
+        // Transform the data to include all required fields
+        const transformedData = data.map(item => ({
+          date: item.date,
+          revenue: item.revenue,
+          netIncome: item.netIncome,
+          grossProfit: item.grossProfit,
+          operatingExpenses: item.operatingExpenses
+        }));
+        
+        setFinancialData(transformedData);
+        setFilteredData(transformedData);
         setLoading(false);
       } catch (err) {
         setError('Failed to fetch data');
